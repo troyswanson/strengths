@@ -1,0 +1,22 @@
+{
+  "name": "strengths",
+  "version": "0.0.1",
+  "description": "Tiny app to find the descriptions of your strengths",
+  "main": "index.js",
+  "dependencies": {
+    "express": "~4.11.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/troyswanson/strengths.git"
+  },
+  "author": "Troy Swanson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/troyswanson/strengths/issues"
+  },
+  "homepage": "https://github.com/troyswanson/strengths"
+}
