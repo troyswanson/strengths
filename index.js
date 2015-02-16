@@ -20,14 +20,19 @@ var Strength = mongoose.model('Strength', new mongoose.Schema({
 var app = express();
 var router = express.Router();
 
-router.route('/strength/:strength_name')
-  .get(function (req, res) {
-    Strength.findOne({title: req.params.strength_name}, function (err, strength) {
-      res.json(strength);
-    });
+router.route('/strengths/search/:q').get(function (req, res) {
+  Strength.find({title: {$regex: req.params.q, $options: 'i'}}, 'title -_id', function (err, s) {
+    res.json(s);
   });
+});
 
-app.use('/', router);
+router.route('/strengths/:title').get(function (req, res) {
+  Strength.findOne({title: {$regex: req.params.title, $options: 'i'}}, '-_id', function (err, s) {
+    res.json(s);
+  });
+});
+
+app.use(router);
 
 app.set('port', (process.env.PORT || 5000));
 
