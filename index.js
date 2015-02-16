@@ -2,7 +2,7 @@
 "use strict";
 
 var express = require('express');
-var mongoose   = require('mongoose');
+var mongoose = require('mongoose');
 
 
 /* mongoose */
@@ -32,6 +32,7 @@ router.route('/strengths/:title').get(function (req, res) {
   });
 });
 
+app.use(express.static(__dirname + '/public'));
 app.use(router);
 
 app.set('port', (process.env.PORT || 5000));
