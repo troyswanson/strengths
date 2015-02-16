@@ -1,13 +1,36 @@
+/*jslint node: true*/
+"use strict";
+
 var express = require('express');
+var mongoose   = require('mongoose');
+
+
+/* mongoose */
+
+mongoose.connect(process.env.MONGODB_CONNECT_STRING);
+
+var Strength = mongoose.model('Strength', new mongoose.Schema({
+  title: String,
+  description: String
+}));
+
+
+/* express */
+
 var app = express();
+var router = express.Router();
+
+router.route('/strength/:strength_name')
+  .get(function (req, res) {
+    Strength.findOne({title: req.params.strength_name}, function (err, strength) {
+      res.json(strength);
+    });
+  });
+
+app.use('/', router);
 
 app.set('port', (process.env.PORT || 5000));
-app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(request, response) {
-  response.send('Hello world!');
-});
-
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at 127.0.0.1:" + app.get('port'));
+app.listen(app.get('port'), function () {
+  console.log("Server running on port " + app.get('port'));
 });
