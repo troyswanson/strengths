@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Tiny app to find the descriptions of your strengths",
   "main": "index.js",
-  "engine": {
+  "engines": {
     "node": "0.12.x"
   },
   "dependencies": {
