@@ -1,5 +1,6 @@
 # strengths
 
+[![Build Status](https://travis-ci.org/troyswanson/strengths.svg)](https://travis-ci.org/troyswanson/strengths)
 [![Code Climate](https://codeclimate.com/github/troyswanson/strengths/badges/gpa.svg)](https://codeclimate.com/github/troyswanson/strengths)
 [![Test Coverage](https://codeclimate.com/github/troyswanson/strengths/badges/coverage.svg)](https://codeclimate.com/github/troyswanson/strengths)
 
