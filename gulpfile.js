@@ -11,7 +11,7 @@ var paths = {
   bower: 'bower_components'
 };
 
-gulp.task('default', ['angular', 'bootstrap']);
+gulp.task('default', ['angular', 'bootstrap-css', 'bootstrap-fonts']);
 
 gulp.task('angular', function () {
   return gulp.src(paths.bower + '/angular/angular.js')
@@ -21,11 +21,16 @@ gulp.task('angular', function () {
     .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('bootstrap', function () {
+gulp.task('bootstrap-css', function () {
   return gulp.src(paths.bower + '/bootstrap/less/bootstrap.less')
     .pipe(sourcemaps.init())
     .pipe(less())
     .pipe(minifyCSS())
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('bootstrap-fonts', function () {
+  return gulp.src(paths.bower + '/bootstrap/fonts/*')
+    .pipe(gulp.dest('public/fonts'));
 });
