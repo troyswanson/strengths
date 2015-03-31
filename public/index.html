@@ -1,18 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="strengths">
   <head>
     <title>Strengths</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
     <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="ng-strengths.js"></script>
   </head>
-  <body>
-    <nav class="navbar navbar-default">
+  <body ng-controller="StrengthsCtrl">
+    <section>
       <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Strengths</a>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="page-header">
+              <h1>Strengths</h1>
+            </div>
+          </div>
+          <div class="col-md-4 col-md-push-8">
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="search" placeholder="Strength">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary" type="button">
+                  <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+              </span>
+            </div>
+            <div class="list-group" ng-show="search.length">
+              <a href="#" class="list-group-item" ng-repeat="s in list | filter:search" ng-click="get(s.title)" ng-bind="s.title"></a>
+            </div>
+          </div>
+          <div class="col-md-8 col-md-pull-4">
+            <h2 ng-bind="title"></h2>
+            <p ng-bind="description" class="lead"></p>
+          </div>
         </div>
       </div>
-    </nav>
+    </section>
   </body>
 </html>
