@@ -17,17 +17,9 @@
             </div>
           </div>
           <div class="col-md-4 col-md-push-8">
-            <div class="input-group">
-              <input type="text" class="form-control" ng-model="search" placeholder="Strength">
-              <span class="input-group-btn">
-                <button type="submit" class="btn btn-primary" type="button">
-                  <span class="glyphicon glyphicon-arrow-right"></span>
-                </button>
-              </span>
-            </div>
-            <div class="list-group" ng-show="search.length">
-              <a href="#" class="list-group-item" ng-repeat="s in list | filter:search" ng-click="get(s.title)" ng-bind="s.title"></a>
-            </div>
+            <ul class="nav nav-pills">
+              <li ng-repeat="s in list"><a href="#" ng-click="get(s.title)" ng-bind="s.title"></a></li>
+            </ul>
           </div>
           <div class="col-md-8 col-md-pull-4">
             <h2 ng-bind="title"></h2>
