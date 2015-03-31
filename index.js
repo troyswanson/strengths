@@ -8,12 +8,11 @@ var router = express.Router();
 
 var strengths = require('./app/routes/strengths');
 
+router.route('/strengths').get(strengths.list);
 router.route('/strength/:title').get(strengths.view);
-router.route('/strengths/typeahead/:q').get(strengths.typeahead);
-router.route('/strengths/search/:q').get(strengths.search);
 
-app.use(express.static(__dirname + '/public'));
 app.use(router);
+app.use(express.static(__dirname + '/public'));
 
 app.set('port', (process.env.PORT || 5000));
 
