@@ -7,7 +7,7 @@
     <script type="text/javascript" src="js/angular.js"></script>
     <script type="text/javascript" src="ng-strengths.js"></script>
   </head>
-  <body ng-controller="StrengthsCtrl">
+  <body ng-controller="StrengthsCtrl" style="padding-bottom:50px;">
     <section>
       <div class="container">
         <div class="row">
@@ -22,11 +22,25 @@
             </ul>
           </div>
           <div class="col-md-8 col-md-pull-4">
-            <h2 ng-bind="title"></h2>
-            <p ng-bind="description" class="lead"></p>
+            <div class="jumbotron" ng-hide="title.length">
+              <h1>Howdy.</h1>
+              <p>Select a strength to get started.</p>
+            </div>
+            <div ng-show="title.length">
+              <h2 ng-bind="title"></h2>
+              <p ng-bind="description" class="lead"></p>
+            </div>
           </div>
         </div>
       </div>
     </section>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <p class="navbar-text">Built by <a href="http://troy.im/">Troy Swanson</a></p>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://github.com/troyswanson/strengths">GitHub</a></li>
+        </ul>
+      </div>
+    </nav>
   </body>
 </html>
