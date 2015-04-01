@@ -7,40 +7,42 @@
     <script type="text/javascript" src="js/angular.js"></script>
     <script type="text/javascript" src="ng-strengths.js"></script>
   </head>
-  <body ng-controller="StrengthsCtrl" style="padding-bottom:50px;">
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="page-header">
-              <h1>Strengths</h1>
-            </div>
+  <body ng-controller="StrengthsCtrl">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h1>Strengths</h1>
           </div>
-          <div class="col-md-4 col-md-push-8">
-            <ul class="nav nav-pills">
-              <li ng-repeat="s in list"><a href="#" ng-click="get(s.title)" ng-bind="s.title"></a></li>
-            </ul>
+        </div>
+        <div class="col-md-4 col-md-push-8">
+          <ul class="nav nav-pills">
+            <li ng-repeat="s in list" ng-class="{active: (s.title == title)}">
+              <a href="#" ng-click="get(s.title)" ng-bind="s.title"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-8 col-md-pull-4">
+          <div class="jumbotron" ng-hide="title.length">
+            <h1>Howdy.</h1>
+            <p>Select a strength to get started.</p>
           </div>
-          <div class="col-md-8 col-md-pull-4">
-            <div class="jumbotron" ng-hide="title.length">
-              <h1>Howdy.</h1>
-              <p>Select a strength to get started.</p>
-            </div>
-            <div ng-show="title.length">
-              <h2 ng-bind="title"></h2>
-              <p ng-bind="description" class="lead"></p>
-            </div>
+          <div ng-show="title.length">
+            <h2 ng-bind="title"></h2>
+            <p ng-bind="description" class="lead"></p>
           </div>
         </div>
       </div>
-    </section>
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
-        <p class="navbar-text">Built by <a href="http://troy.im/">Troy Swanson</a></p>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://github.com/troyswanson/strengths">GitHub</a></li>
-        </ul>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-unstyled">
+            <li>Created for fun by <a href="http://troy.im">Troy Swanson</a>.</li>
+            <li>Strengths database hosted by <a href="http://objectrocket.com">ObjectRocket</a>.</li>
+            <li>Check out the <a href="http://github.com/troyswanson/strengths">source</a> on GitHub.</li>
+          </ul>
+        </div>
       </div>
-    </nav>
+    </div>
   </body>
 </html>
