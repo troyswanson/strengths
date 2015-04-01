@@ -23,7 +23,17 @@
             <h1>Strengths</h1>
           </div>
         </div>
-        <div class="col-md-4 col-md-push-8">
+        <div class="col-md-8">
+          <div class="jumbotron" ng-hide="chosen.length">
+            <h1>Howdy.</h1>
+            <p>Select a strength to get started.</p>
+          </div>
+          <div ng-show="chosen.length">
+            <h2 ng-bind="title"></h2>
+            <p ng-bind="description" class="lead"></p>
+          </div>
+        </div>
+        <div class="col-md-4">
           <div class="visible-sm visible-xs">
             <div class="form-group">
               <select class="form-control" ng-change="update()" ng-model="chosen" ng-options="s.title as s.title for s in list">
@@ -36,16 +46,6 @@
                 <a href="#" ng-click="select(s.title)" ng-bind="s.title"></a>
               </li>
             </ul>
-          </div>
-        </div>
-        <div class="col-md-8 col-md-pull-4">
-          <div class="jumbotron" ng-hide="chosen.length">
-            <h1>Howdy.</h1>
-            <p>Select a strength to get started.</p>
-          </div>
-          <div ng-show="chosen.length">
-            <h2 ng-bind="title"></h2>
-            <p ng-bind="description" class="lead"></p>
           </div>
         </div>
       </div>
