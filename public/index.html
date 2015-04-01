@@ -24,18 +24,26 @@
           </div>
         </div>
         <div class="col-md-4 col-md-push-8">
-          <ul class="nav nav-pills">
-            <li ng-repeat="s in list" ng-class="{active: (s.title == title)}">
-              <a href="#" ng-click="get(s.title)" ng-bind="s.title"></a>
-            </li>
-          </ul>
+          <div class="visible-sm visible-xs">
+            <div class="form-group">
+              <select class="form-control" ng-change="update()" ng-model="chosen" ng-options="s.title as s.title for s in list">
+              </select>
+            </div>
+          </div>
+          <div class="visible-md visible-lg">
+            <ul class="nav nav-pills">
+              <li ng-repeat="s in list" ng-class="{active: (s.title == chosen)}">
+                <a href="#" ng-click="select(s.title)" ng-bind="s.title"></a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="col-md-8 col-md-pull-4">
-          <div class="jumbotron" ng-hide="title.length">
+          <div class="jumbotron" ng-hide="chosen.length">
             <h1>Howdy.</h1>
             <p>Select a strength to get started.</p>
           </div>
-          <div ng-show="title.length">
+          <div ng-show="chosen.length">
             <h2 ng-bind="title"></h2>
             <p ng-bind="description" class="lead"></p>
           </div>
