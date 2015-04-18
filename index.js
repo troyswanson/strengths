@@ -17,5 +17,5 @@ app.use(express.static(__dirname + '/public'));
 app.set('port', (process.env.PORT || 5000));
 
 app.listen(app.get('port'), function () {
-  console.log("Server running on port " + app.get('port'));
+  console.log("Running on 127.0.0.1:" + app.get('port'));
 });
